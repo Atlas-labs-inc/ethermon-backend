@@ -1,4 +1,5 @@
 from typing import List
+import base64
 import time
 import json
 from os import environ, urandom
@@ -187,10 +188,39 @@ NPCS = [
         ]
     },
 ]
+# Replace the values below with your own contract details
+CONTRACT_ABI = json.loads(open("./utils/nft_abi.json").read())
+CONTRACT_ADDRESS = '0xBF70ffff8D0F6491eA7602877F90adAc4958F0AE'
 
+# Initialize web3.py instance
+w3 = Web3(Web3.HTTPProvider('https://matic-mumbai.chainstacklabs.com'))
 
-async def verify_token_id(token_id: str, user_address: str):
-    return {"monster_type": "fire", "name": "Goblinachu", "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png", "moves": ["fireball", "overheat", "headbutt", "fire dance", "skip"]}
+# Define the contract instance
+contract = w3.eth.contract(address=w3.to_checksum_address(CONTRACT_ADDRESS), abi=CONTRACT_ABI)
+
+async def verify_token_id_wait(token_id: str):
+    try:
+        # Get the tokenURI for the token
+        token_uri = contract.functions.tokenURI(int(token_id)).call()
+        # decode base64
+        parsed_token_uri = json.loads(base64.b64decode(token_uri[29:]).decode('utf-8'))
+        values = [item["value"] for item in data]
+
+        {
+            "name": parsed_token_uri["name"],
+            "monster_type": parsed_token_uri["monster_type"],
+            "image": parsed_token_uri["image"],
+            "moves": parsed_token_uri["moves"]
+        }
+        
+
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=400, detail="Invalid token ID")
+
+async def verify_token_id(token_id: str, facts: dict):
+    moves = [x['name'] for x in facts["moves"] if x != "skip"]
+    return {"monster_type": "fire", "name": "Goblinachu", "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png", "moves": moves}
 
 
 def calculate_modifier(attacker_type: str, defender_type: str) -> float:
@@ -335,7 +365,7 @@ async def play(websocket: WebSocket):
     # Load its valid moves
     move_map = json.loads(open("./server/moves.json", "r").read())
     # type:ignore
-    player = await verify_token_id(auth["token_id"], user_address)
+    player = await verify_token_id(auth["token_id"], move_map)
     npc = random.choice(NPCS)
     game_state = {
         "state": GameStates.WAITING_FOR_PLAYER.value,
