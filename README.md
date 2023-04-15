@@ -19,6 +19,3 @@ EthMonsterNFT:
 ```
 0x73773c98DFc52fa3e11e93BBFb80E797f75c457F
 ```
-
-## Scroll
-URIBuilder:
