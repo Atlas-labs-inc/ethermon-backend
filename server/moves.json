@@ -1,5 +1,16 @@
 [
   {
+    "name": "skip",
+    "type": "normal",
+    "damage": 0,
+    "manaCost": 0,
+    "buffType": "none",
+    "buffAmount": 0,
+    "debuffType": "none",
+    "debuffAmount": 0,
+    "heal": 0
+  },
+  {
     "name": "ember",
     "type": "fire",
     "damage": 15,
