@@ -237,13 +237,13 @@ def perform_state_transition(game_state, current_player_key, opponent_player_key
 
     # determine if game over 
     if temp_game_state[opponent_player_key]['hp'] <= 0:
-        temp_game_state['state'] = GameStates.FINISHED
+        temp_game_state['state'] = GameStates.FINISHED.value
         temp_game_state['winner'] = current_player_key
     
-    if temp_game_state['state'] == GameStates.WAITING_FOR_PLAYER:
-        temp_game_state['state'] = GameStates.WAITING_FOR_OPPONENT
+    if temp_game_state['state'] == GameStates.WAITING_FOR_PLAYER.value:
+        temp_game_state['state'] = GameStates.WAITING_FOR_OPPONENT.value
     else:
-        temp_game_state['state'] = GameStates.WAITING_FOR_PLAYER
+        temp_game_state['state'] = GameStates.WAITING_FOR_PLAYER.value
     return temp_game_state
     
 def get_move_logic(move_name, move_map):
@@ -273,7 +273,7 @@ async def play(websocket: WebSocket):
     player = await verify_token_id(auth["token_id"], user_address) #type:ignore
     npc = random.choice(NPCS)
     game_state = {
-        "state": GameStates.WAITING_FOR_PLAYER,
+        "state": GameStates.WAITING_FOR_PLAYER.value,
         "winner": None,
         "turn": 0,
         "state_transitions": [],
