@@ -198,28 +198,8 @@ w3 = Web3(Web3.HTTPProvider('https://matic-mumbai.chainstacklabs.com'))
 # Define the contract instance
 contract = w3.eth.contract(address=w3.to_checksum_address(CONTRACT_ADDRESS), abi=CONTRACT_ABI)
 
-async def verify_token_id_wait(token_id: str):
-    try:
-        # Get the tokenURI for the token
-        token_uri = contract.functions.tokenURI(int(token_id)).call()
-        # decode base64
-        parsed_token_uri = json.loads(base64.b64decode(token_uri[29:]).decode('utf-8'))
-        values = [item["value"] for item in data]
-
-        {
-            "name": parsed_token_uri["name"],
-            "monster_type": parsed_token_uri["monster_type"],
-            "image": parsed_token_uri["image"],
-            "moves": parsed_token_uri["moves"]
-        }
-        
-
-    except Exception as e:
-        print(e)
-        raise HTTPException(status_code=400, detail="Invalid token ID")
-
 async def verify_token_id(token_id: str, facts: dict):
-    moves = [x['name'] for x in facts["moves"] if x != "skip"]
+    moves = [x['value'] for x in facts if x['value'] != "skip"]
     return {"monster_type": "fire", "name": "Goblinachu", "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png", "moves": moves}
 
 
