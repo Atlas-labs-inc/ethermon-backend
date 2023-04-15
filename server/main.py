@@ -11,7 +11,7 @@ from pydantic import ValidationError, dataclasses
 from enum import Enum
 
 from fastapi.responses import HTMLResponse, JSONResponse 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, WebSocket
 from web3 import Web3, HTTPProvider
 from web3.auto import w3
 from pydantic import BaseModel
@@ -74,8 +74,7 @@ async def sign_in(request: SignInRequest) -> JSONResponse:
     siwe_message = None
     try:
         siwe_message = SiweMessage(message=request.message)
-    except e:
-        print(e)
+    except:
         raise HTTPException(status_code=400, detail="Invalid auth payload")
 
     if siwe_message.address not in sign_in_queue:
@@ -254,7 +253,7 @@ def get_move_logic(move_name, move_map):
     return None
 
 @app.websocket("/play")
-async def play(websocket):
+async def play(websocket: WebSocket):
     await websocket.accept()
     """
     {"access_token": "token", "token_id": "token_id"}
