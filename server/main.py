@@ -74,7 +74,8 @@ async def sign_in(request: SignInRequest) -> JSONResponse:
     siwe_message = None
     try:
         siwe_message = SiweMessage(message=request.message)
-    except:
+    except e:
+        print(e)
         raise HTTPException(status_code=400, detail="Invalid auth payload")
 
     if siwe_message.address not in sign_in_queue:
