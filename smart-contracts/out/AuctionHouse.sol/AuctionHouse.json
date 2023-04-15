@@ -1,0 +1,158 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": {
+    "object": "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea2646970667358221220d070bfd9e05543d4dd00ddaa540b08eda6e3de61f664349bdaff9ca2f310778c64736f6c63430008130033",
+    "sourceMap": "63:45:31:-:0;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x600080fdfea2646970667358221220d070bfd9e05543d4dd00ddaa540b08eda6e3de61f664349bdaff9ca2f310778c64736f6c63430008130033",
+    "sourceMap": "63:45:31:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/AuctionHouse.sol\":\"AuctionHouse\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\"],\"viaIR\":true},\"sources\":{\"src/AuctionHouse.sol\":{\"keccak256\":\"0x2bb280a3fd76c90269c9d416780e49a4091f375efd1e12da1aee12b5333c84b6\",\"license\":\"Unlicense\",\"urls\":[\"bzz-raw://19813fdf6557736a59133080a55d774a79fc1a15928ac269168601d1de23c7cf\",\"dweb:/ipfs/QmeyKs44PP4JYv3aetN8J6T9WN95wECJrte9xjzk897zUq\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.19+commit.7dd6d404"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":openzeppelin/=lib/openzeppelin-contracts/contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/AuctionHouse.sol": "AuctionHouse"
+      },
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/AuctionHouse.sol": {
+        "keccak256": "0x2bb280a3fd76c90269c9d416780e49a4091f375efd1e12da1aee12b5333c84b6",
+        "urls": [
+          "bzz-raw://19813fdf6557736a59133080a55d774a79fc1a15928ac269168601d1de23c7cf",
+          "dweb:/ipfs/QmeyKs44PP4JYv3aetN8J6T9WN95wECJrte9xjzk897zUq"
+        ],
+        "license": "Unlicense"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/AuctionHouse.sol",
+    "id": 31891,
+    "exportedSymbols": {
+      "AuctionHouse": [
+        31890
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "38:71:31",
+    "nodes": [
+      {
+        "id": 31885,
+        "nodeType": "PragmaDirective",
+        "src": "38:23:31",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ]
+      },
+      {
+        "id": 31890,
+        "nodeType": "ContractDefinition",
+        "src": "63:45:31",
+        "nodes": [
+          {
+            "id": 31889,
+            "nodeType": "FunctionDefinition",
+            "src": "88:17:31",
+            "nodes": [],
+            "body": {
+              "id": 31888,
+              "nodeType": "Block",
+              "src": "103:2:31",
+              "nodes": [],
+              "statements": []
+            },
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "parameters": {
+              "id": 31886,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "100:2:31"
+            },
+            "returnParameters": {
+              "id": 31887,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "103:0:31"
+            },
+            "scope": 31890,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "AuctionHouse",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          31890
+        ],
+        "name": "AuctionHouse",
+        "nameLocation": "72:12:31",
+        "scope": 31891,
+        "usedErrors": []
+      }
+    ],
+    "license": "Unlicense"
+  },
+  "id": 31
+}
