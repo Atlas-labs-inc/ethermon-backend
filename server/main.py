@@ -301,7 +301,7 @@ async def play(websocket: WebSocket):
     await websocket.send_json(game_state)
     while (game_state['state'] != GameStates.FINISHED):
         move_name = (await websocket.receive_json())['move']
-        if move_name not in game_state['player_stats']['valid_moves']:
+        if move_name not in game_state['player']['valid_moves']:
             await websocket.send_json({"error": "Invalid move"})
             continue
 
